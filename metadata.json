@@ -1,0 +1,12 @@
+{
+  "name": "Sentinel: Sea Guardian",
+  "description": "Advanced maritime safety and AI-powered oceanic hazard monitoring system.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "Computer Vision",
+    "Real-time Hazard Prediction",
+    "Rescue Deployment Logic"
+  ]
+}
