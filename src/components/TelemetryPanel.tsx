@@ -16,25 +16,25 @@ const data = Array.from({ length: 24 }, (_, i) => {
 
 export function TelemetryPanel() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
-      <div className="bg-guardian-slate/50 p-6 rounded-2xl border border-guardian-slate flex flex-col gap-4">
-        <div className="flex items-center justify-between">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 h-full">
+      <div className="bg-guardian-slate/50 p-4 md:p-6 rounded-2xl border border-guardian-slate flex flex-col gap-4">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-500/10 rounded-lg">
               <Wind className="w-5 h-5 text-blue-400" />
             </div>
             <div>
               <h3 className="text-sm font-semibold text-white">Environmental Scaling</h3>
-              <p className="text-[10px] font-mono text-slate-400 uppercase">Wind Speed vs SWH (SWH = a·U^b)</p>
+              <p className="text-[10px] font-mono text-slate-400 uppercase">SWH = a·U^b</p>
             </div>
           </div>
-          <div className="text-right">
-            <div className="text-xl font-display font-bold text-guardian-green">14.2 m/s</div>
-            <div className="text-[10px] font-mono text-slate-500">PEAK_GUST</div>
+          <div className="text-left sm:text-right">
+            <div className="text-lg md:text-xl font-display font-bold text-guardian-green">14.2 m/s</div>
+            <div className="text-[9px] md:text-[10px] font-mono text-slate-500 uppercase">PEAK_GUST</div>
           </div>
         </div>
 
-        <div className="flex-1 min-h-[200px]">
+        <div className="flex-1 min-h-[150px] md:min-h-[200px]">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={data}>
               <defs>

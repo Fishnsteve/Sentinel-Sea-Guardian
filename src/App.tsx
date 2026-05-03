@@ -22,13 +22,13 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen bg-guardian-navy overflow-hidden font-sans selection:bg-guardian-green selection:text-guardian-navy">
+    <div className="flex flex-col lg:flex-row h-screen bg-guardian-navy overflow-hidden font-sans selection:bg-guardian-green selection:text-guardian-navy">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <main className="flex-1 flex flex-col min-w-0 bg-guardian-navy data-grid-bg relative">
+      <main className="flex-1 flex flex-col min-w-0 bg-guardian-navy data-grid-bg relative overflow-hidden">
         <Header aiResult={aiResult} onClear={() => setAiResult(null)} />
 
-        <div className="flex-1 overflow-y-auto custom-scrollbar p-8">
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-4 md:p-8 pb-24 lg:pb-8">
           <AnimatePresence mode="wait">
             {activeTab === 'overview' && (
               <motion.div
@@ -36,23 +36,23 @@ export default function App() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="space-y-8 max-w-7xl mx-auto"
+                className="space-y-6 md:space-y-8 max-w-7xl mx-auto"
               >
                 {/* Hero Section: Live Feed */}
-                <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 md:gap-8">
                   <div className="xl:col-span-2">
                     <LiveFeed onVerify={handleAiVerify} />
                   </div>
                   
                   {/* Quick Status / AI Insight */}
                   <div className="space-y-6">
-                    <div className="bg-guardian-slate/50 p-6 rounded-2xl border border-guardian-slate h-full flex flex-col justify-between">
+                    <div className="bg-guardian-slate/50 p-4 md:p-6 rounded-2xl border border-guardian-slate h-full flex flex-col justify-between">
                       <div>
                         <div className="flex items-center gap-2 mb-4">
                           <Terminal className="w-4 h-4 text-guardian-green" />
                           <h3 className="text-xs font-mono text-slate-500 uppercase tracking-widest">AI Detection Log</h3>
                         </div>
-                        <div className="space-y-4">
+                        <div className="space-y-3 md:space-y-4">
                           <LogItem type="danger" text="IDR_SIGNATURE detected in Sector_B4" time="10:44" />
                           <LogItem type="warning" text="Rip current velocity increasing" time="10:42" />
                           <LogItem type="info" text="Rescue Board RB_07 mission started" time="10:40" />
@@ -61,7 +61,7 @@ export default function App() {
                       </div>
 
                       {aiResult && (
-                        <div className="mt-8 p-4 bg-guardian-orange/10 border border-guardian-orange/30 rounded-xl animate-in zoom-in-95 duration-300">
+                        <div className="mt-6 md:mt-8 p-4 bg-guardian-orange/10 border border-guardian-orange/30 rounded-xl animate-in zoom-in-95 duration-300">
                           <div className="flex items-center gap-2 mb-2">
                             <AlertCircle className="w-4 h-4 text-guardian-orange" />
                             <span className="text-[10px] font-bold text-guardian-orange uppercase tracking-wider">Cloud Verification Detail</span>
