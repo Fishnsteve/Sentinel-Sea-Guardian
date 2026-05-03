@@ -90,39 +90,58 @@ export function RescueDeployment() {
         </div>
       </div>
 
-      <div className="bg-guardian-slate/50 rounded-2xl border border-guardian-slate p-6">
-        <h3 className="text-xs font-mono text-slate-500 uppercase mb-4 tracking-widest">Autonomous Logic</h3>
-        <div className="space-y-6">
-          <div className="p-4 bg-guardian-navy border border-guardian-slate rounded-xl">
-             <div className="flex justify-between items-center mb-3">
-               <span className="text-[11px] font-bold text-slate-300">MediaPipe Navigation</span>
-               <div className="p-1 px-2 bg-guardian-green/10 text-guardian-green rounded text-[9px] font-mono">OPTIMAL</div>
-             </div>
-             <p className="text-[11px] text-slate-500 mb-4">Rescue Board RB_07 navigating via MediaPipe Pose Estimation to victim GPS coordinates. Current ETA: 45s.</p>
-             <div className="flex gap-1 h-1">
-               {Array.from({ length: 12 }).map((_, i) => (
-                 <div key={i} className={cn("flex-1 rounded-full", i < 8 ? "bg-guardian-green" : "bg-guardian-slate")} />
-               ))}
-             </div>
-          </div>
+        <div className="bg-guardian-slate/50 rounded-2xl border border-guardian-slate p-6">
+          <h3 className="text-xs font-mono text-slate-500 uppercase mb-4 tracking-widest">Autonomous Logic</h3>
+          <div className="space-y-6">
+            <div className="p-4 bg-guardian-navy border border-guardian-slate rounded-xl">
+               <div className="flex justify-between items-center mb-3">
+                 <span className="text-[11px] font-bold text-slate-300">MediaPipe Navigation</span>
+                 <div className="p-1 px-2 bg-guardian-green/10 text-guardian-green rounded text-[9px] font-mono">OPTIMAL</div>
+               </div>
+               <p className="text-[11px] text-slate-500 mb-4">Rescue Board RB_07 navigating via MediaPipe Pose Estimation to victim GPS coordinates. Current ETA: 45s.</p>
+               <div className="flex gap-1 h-1">
+                 {Array.from({ length: 12 }).map((_, i) => (
+                   <motion.div key={i} animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1.5, delay: i * 0.1 }} className={cn("flex-1 rounded-full", i < 8 ? "bg-guardian-green" : "bg-guardian-slate")} />
+                 ))}
+               </div>
+            </div>
 
-          <div className="p-4 bg-guardian-navy border border-guardian-slate rounded-xl">
-             <div className="flex justify-between items-center mb-3">
-               <span className="text-[11px] font-bold text-slate-300">Haptic Snapshot</span>
-               <span className="text-[9px] font-mono text-slate-500 uppercase italic">QUEUE: 01</span>
-             </div>
-             <div className="flex -space-x-2">
-               <div className="w-8 h-8 rounded-full border-2 border-guardian-navy bg-guardian-slate overflow-hidden">
-                 <img src="https://i.pravatar.cc/150?u=1" alt="avatar" />
+            <div className="p-4 bg-guardian-navy border border-guardian-slate rounded-xl">
+               <h4 className="text-[10px] font-mono text-slate-400 uppercase mb-3 border-b border-guardian-slate pb-2">Recent Mission Logs</h4>
+               <div className="space-y-2">
+                  <div className="flex justify-between items-center text-[9px]">
+                     <span className="text-slate-300">INCIDENT_392 (RIP)</span>
+                     <span className="text-guardian-green">RESOLVED</span>
+                  </div>
+                  <div className="flex justify-between items-center text-[9px]">
+                     <span className="text-slate-300">IDR_DETECTED_04</span>
+                     <span className="text-guardian-green">RECOVERED</span>
+                  </div>
+                  <div className="flex justify-between items-center text-[9px]">
+                     <span className="text-slate-300">ROGUE_WAVE_ALPHA</span>
+                     <span className="text-slate-500">MONITORED</span>
+                  </div>
                </div>
-               <div className="w-8 h-8 rounded-full border-2 border-guardian-navy bg-guardian-slate flex items-center justify-center text-[10px] font-mono">
-                 +3
+            </div>
+
+            <div className="p-4 bg-guardian-navy border border-guardian-slate rounded-xl">
+               <div className="flex justify-between items-center mb-3">
+                 <span className="text-[11px] font-bold text-slate-300">Haptic Snapshot</span>
+                 <span className="text-[9px] font-mono text-slate-500 uppercase italic">QUEUE: 01</span>
                </div>
-             </div>
-             <p className="text-[10px] text-slate-500 mt-3 font-mono">PUSHED_TO: BEACH_UNIT_NORTH, TOWER_04</p>
+               <div className="flex -space-x-2">
+                 <div className="w-8 h-8 rounded-full border-2 border-guardian-navy bg-guardian-slate overflow-hidden">
+                   <img src="https://i.pravatar.cc/150?u=1" alt="avatar" />
+                 </div>
+                 <div className="w-8 h-8 rounded-full border-2 border-guardian-navy bg-guardian-slate flex items-center justify-center text-[10px] font-mono">
+                   +3
+                 </div>
+               </div>
+               <p className="text-[10px] text-slate-500 mt-3 font-mono">PUSHED_TO: BEACH_UNIT_NORTH, TOWER_04</p>
+            </div>
           </div>
         </div>
-      </div>
+
     </div>
   );
 }
